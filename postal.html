@@ -84,10 +84,16 @@
 			)
 		}
 
-
+		PostalCard.propTypes = {
+			to: PropTypes.string.isRequired,
+			mensaje: PropTypes.string.isRequired
+		}
 
 		const elementJSX = (
-            <PostalCard>
+            <PostalCard
+				to="All"
+				mensaje="Hola mundo"
+			>
 				
 			</PostalCard>
 
