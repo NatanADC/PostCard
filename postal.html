@@ -1,13 +1,53 @@
-<!DOCTYPE html>
-<html>
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="index.css">
-	<link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
-	<title></title>
-	<title></title>
+
 </head>
 <body>
+	
+	<div id="root"></div>
 
+	<!--para tener disponible REACT en este doc-->
+	<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+     <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>    
+
+    
+	<script type="text/babel">
+		const rootElement = document.getElementById('root');
+
+		const PostalCard = (props) =>{
+			return (
+				<div className ="container">
+  					<div className ="PostDesign">
+  						<div className="pick">
+							<h1>Visit Kalos</h1>
+							<img src="https://img.resized.co/dexerto/eyJkYXRhIjoie1widXJsXCI6XCJodHRwczpcXFwvXFxcL2ltYWdlcy5kZXhlcnRvLmVzXFxcL3VwbG9hZHNcXFwvdGh1bWJuYWlsc1xcXC9fdGh1bWJuYWlsTGFyZ2VcXFwvcG9ydGFkYS1rYWxvcy1taW4uanBnXCIsXCJ3aWR0aFwiOjYyMCxcImhlaWdodFwiOjM0NyxcImRlZmF1bHRcIjpcImh0dHBzOlxcXC9cXFwvczMtZXUtd2VzdC0xLmFtYXpvbmF3cy5jb21cXFwvcHBsdXMuaW1hZ2VzLmRleGVydG8uY29tXFxcL3VwbG9hZHNcXFwvMjAxOVxcXC8xMVxcXC8xMTIxNDk0M1xcXC9wbGFjZWhvbGRlci5qcGdcIn0iLCJoYXNoIjoiZWRkZjhjMjE5Mjg1MzljMjcyMmI4NWM3YTRiNTdkYjhhNTM3ZjAzZSJ9/la-region-de-kalos-podria-ser-el-postgame-de-pokemon-espada-y-escudo.jpg"></img>
+						</div>
+						<div className="letter">
+							<h2>
+  								From: Natanael 
+  							</h2>
+							<h2>
+  								To: Carlos
+  							</h2>
+							  Hola
+						</div>
+  					</div>
+				</div>
+			)
+		}
+
+
+		const elementJSX = (
+            <PostalCard	>
+				
+			</PostalCard>
+
+		);
+
+
+
+		ReactDOM.render(elementJSX, rootElement);
+	</script>
+	
 </body>
-</html>
