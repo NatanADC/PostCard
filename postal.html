@@ -4,6 +4,7 @@
   		display: flex;
   		align-items: center;
   		justify-content: center;
+		  flex-direction: column;
 		}
 
 		.PostDesign {
@@ -63,44 +64,109 @@
 		const rootElement = document.getElementById('root');
 
 		const PostalCard = (props) =>{
+			
+			const {
+				className = '',
+				style,
+				color,
+				fStyle,
+				...rest
+			} = props;
+
+			const colorStyle = color ? {backgroundColor: color} : {};
+			const thisFont = fStyle ? {fontStyle: fStyle} : {};
+
+			const [toWho, setToWho] = React.useState(window.localStorage.getItem('toWho') || '');
+			const [theMessage, setTheMessage] = React.useState(window.localStorage.getItem('theMessage') || '');
+
+			//const [sendMessage, setSendMessage] = React.useState(window.localStorage.getItem('sendMessage') || '');
+
+			function handleChange(event) {
+				setToWho(event.target.value);
+			}
+
+			function handleChange2(event) {
+				setTheMessage(event.target.value);
+			}
+
+			/*function handleClick(event) {
+				setToWho(event.target.value);
+			}*/
+
 			return (
 				<div className ="container">
   					<div className ="PostDesign">
   						<div className="pick">
-							<h1>Visit Kalos</h1>
-							<img src="https://img.resized.co/dexerto/eyJkYXRhIjoie1widXJsXCI6XCJodHRwczpcXFwvXFxcL2ltYWdlcy5kZXhlcnRvLmVzXFxcL3VwbG9hZHNcXFwvdGh1bWJuYWlsc1xcXC9fdGh1bWJuYWlsTGFyZ2VcXFwvcG9ydGFkYS1rYWxvcy1taW4uanBnXCIsXCJ3aWR0aFwiOjYyMCxcImhlaWdodFwiOjM0NyxcImRlZmF1bHRcIjpcImh0dHBzOlxcXC9cXFwvczMtZXUtd2VzdC0xLmFtYXpvbmF3cy5jb21cXFwvcHBsdXMuaW1hZ2VzLmRleGVydG8uY29tXFxcL3VwbG9hZHNcXFwvMjAxOVxcXC8xMVxcXC8xMTIxNDk0M1xcXC9wbGFjZWhvbGRlci5qcGdcIn0iLCJoYXNoIjoiZWRkZjhjMjE5Mjg1MzljMjcyMmI4NWM3YTRiNTdkYjhhNTM3ZjAzZSJ9/la-region-de-kalos-podria-ser-el-postgame-de-pokemon-espada-y-escudo.jpg"></img>
+							<h1>Come to my island</h1>
+							<img src="AChouse.jpg"></img>
 						</div>
-						<div className="letter">
+						<div className="letter" 
+							 style={{...thisFont, ...colorStyle, ...style}}
+							 {...rest}>
+
 							<h2>
   								From: Natanael 
   							</h2>
 							<h2>
-  								To: Glo 
+  								To: {toWho}
   							</h2>
 							  <div className="container">
 								<h4>
-									Wish you where here to cath every new single Pokemon in this region
+									{theMessage}
 								</h4>
 							  </div> 
 						</div>
   					</div>
+					<div>
+						<h4>
+							To: 
+						</h4>
+						<input
+							id="toWho"
+							className="border border-gray-500 py-2 px-3 mb-5"
+							value={toWho}
+							onChange={handleChange}
+						/>
+
+						<h4>
+							Mesnaje: 
+						</h4>
+						<input
+							id="theMessage"
+							className="border border-gray-500 py-2 px-3 mb-5"
+							value={theMessage}
+							onChange={handleChange2}
+						/>
+						<br>
+						</br>
+						<button
+						className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mb-5 rounded"
+						onClick={handleClick}
+					>
+						Click me!
+					</button>
+						<h4>
+							Enviando a: 
+						</h4>
+					</div>
 				</div>
 			)
 		}
 
 		PostalCard.propTypes = {
 			to: PropTypes.string.isRequired,
-			mensaje: PropTypes.string.isRequired
+			mensaje: PropTypes.string.isRequired,
+			color: PropTypes.string.isRequired,
+			fStyle: PropTypes.string.isRequired,
 		}
 
 		const elementJSX = (
             <PostalCard
-				to="All"
-				mensaje="Hola mundo"
-			>
-				
-			</PostalCard>
-
+				to = "All"
+				mensaje = "Hola mundo"
+				color = "lightblue"
+				fStyle = "italic"
+			/>
 		);
 
 
